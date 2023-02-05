@@ -1,27 +1,19 @@
-def powerset(inputSet):
-    def powerset_helper(pointer, choices_made, input, result):
-        if (pointer < 0)):
-            append
-        choices_made
-        to
-        results  # make a deep copy since we are working with objects
+
+def powerset_helper(pointer, choices_made, input, result):
+    if pointer >= len(input):
+        new_variable = []
+        for x in choices_made:
+            new_variable.append(x)
+        result.append(new_variable)
         return
+    choices_made.append(input[pointer])
+    powerset_helper(pointer+1, choices_made, input, result)
+    choices_made.pop()
+    powerset_helper(pointer+1, choices_made, input, result)
 
-        append
-        input[pointer]
-        to
-        choices_made
-        powerset_helper(pointer - 1, choices_made, input, result)
-        # backtracking
-        remove
-        last
-        element
-        added
-        to
-        choices_made
-        powerset_helper(pointer - 1, choices_made, input, result)
+def powerset(inputSet):
+    result = []
+    powerset_helper(0, [], inputSet, result)
+    return result
 
-    def powerset(input):
-        result = []
-        powerset_helper(len(input) - 1, [], input, result)
-        return result
+print(powerset([1,2,3]))
